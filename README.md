@@ -1,5 +1,7 @@
 # Laravel Task Manager
-This package is a workaround for run tasks without Artisan, because proc_open & proc_close PHP modules disabled some server such as shared hosts.
+![Tests](https://github.com/stylers-llc/laravel-task-manager/workflows/Tests/badge.svg)
+[![codecov](https://codecov.io/gh/stylers-llc/laravel-task-manager/branch/master/graph/badge.svg?token=QYYV44SUOX)](https://codecov.io/gh/stylers-llc/laravel-task-manager)
+[![Maintainability](https://api.codeclimate.com/v1/badges/cb27855f8162042e522f/maintainability)](https://codeclimate.com/repos/601989c1f8bfa307f40075d5/maintainability)  
 
 ## Requirements
 - PHP >= 7.1.3
