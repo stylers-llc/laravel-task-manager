@@ -1,0 +1,57 @@
+{
+  "name": "stylers/laravel-task-manager",
+  "description": "Laravel Task Manager",
+  "homepage": "https://github.com/stylers-llc/laravel-address",
+  "keywords": [
+    "stylers",
+    "laravel",
+    "task",
+    "manager"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Peter Vigh",
+      "email": "developer@stylersonline.com",
+      "homepage": "http://stylers.hu",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.5",
+    "illuminate/support": "~5"
+  },
+  "require-dev": {
+    "mockery/mockery": "^1.1",
+    "orchestra/testbench": "~3.0|~3.6|~3.7",
+    "phpmd/phpmd": "^2.6",
+    "phpunit/phpunit": "^7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Stylers\\TaskManager\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Stylers\\TaskManager\\Tests\\": "tests",
+      "Stylers\\TaskManager\\Tests\\Fixtures\\": "tests/Fixtures"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Stylers\\TaskManager\\Providers\\TaskManagerServiceProvider"
+      ]
+    }
+  }
+}

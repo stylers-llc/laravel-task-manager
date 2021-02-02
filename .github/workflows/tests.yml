@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Tests
 
 on:
   push:
@@ -10,9 +10,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php_versions: ['7.2', '7.3', '7.4']
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php_versions }}
 
     - name: Cache Composer packages
       id: composer-cache
@@ -28,4 +36,11 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Run test suite
-      run: --verbose --coverage-clover=coverage.xml
+      run: ./vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
+
+    - name: Upload coverage
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: bash <(curl -s https://codecov.io/bash)
+
+
