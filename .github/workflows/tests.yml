@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php_versions: ['7.1', '7.2', '7.3', '7.4']
+        php_versions: ['7.2', '7.3', '7.4']
 
     steps:
     - uses: actions/checkout@v2
-      
+
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -37,7 +37,7 @@ jobs:
 
     - name: Run test suite
       run: ./vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
-    
+
     - name: Upload coverage
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

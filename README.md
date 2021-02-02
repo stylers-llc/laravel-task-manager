@@ -4,8 +4,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/cb27855f8162042e522f/maintainability)](https://codeclimate.com/repos/601989c1f8bfa307f40075d5/maintainability)  
 
 ## Requirements
-- PHP >= 7.1.3
-- Laravel ~5.x
+- PHP >= 7.2.5
+- Laravel >= 5.7
 
 ## Installation
 ```bash
