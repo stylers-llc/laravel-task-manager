@@ -2,6 +2,7 @@
 
 namespace Stylers\TaskManager\Tests\Unit\Console;
 
+use InvalidArgumentException;
 use Stylers\TaskManager\Tests\TestCase;
 use Stylers\TaskManager\Tests\Fixtures\CronExpressionValidator;
 
@@ -18,14 +19,14 @@ class CronExpressionValidatorTest extends TestCase
         return [
             'under_day_of_week_interval' => ['* * * * -1', $dayOfWeekExceptionMsg],
             'above_day_of_week_interval' => ['* * * * 8', $dayOfWeekExceptionMsg],
-            'under_month_interval' => ['* * * 0 *', $monthExceptionMsg],
-            'above_month_interval' => ['* * * 13 *', $monthExceptionMsg],
-            'under_day_interval' => ['* * 0 * *', $dayExceptionMsg],
-            'above_day_interval' => ['* * 32 * *', $dayExceptionMsg],
-            'under_hour_interval' => ['* -1 * * *', $hourExceptionMsg],
-            'above_hour_interval' => ['* 24 * * *', $hourExceptionMsg],
-            'under_minute_interval' => ['-1 * * * *', $minuteExceptionMsg],
-            'above_minute_interval' => ['60 * * * *', $minuteExceptionMsg],
+            'under_month_interval' =>       ['* * * 0 *', $monthExceptionMsg],
+            'above_month_interval' =>       ['* * * 13 *', $monthExceptionMsg],
+            'under_day_interval' =>         ['* * 0 * *', $dayExceptionMsg],
+            'above_day_interval' =>         ['* * 32 * *', $dayExceptionMsg],
+            'under_hour_interval' =>        ['* -1 * * *', $hourExceptionMsg],
+            'above_hour_interval' =>        ['* 24 * * *', $hourExceptionMsg],
+            'under_minute_interval' =>      ['-1 * * * *', $minuteExceptionMsg],
+            'above_minute_interval' =>      ['60 * * * *', $minuteExceptionMsg],
         ];
     }
 
@@ -35,7 +36,7 @@ class CronExpressionValidatorTest extends TestCase
      */
     public function it_can_handle_wrong_input(string $cronExpression, string $exceptionMsg)
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage($exceptionMsg);
 
         (new CronExpressionValidator)->validateExpression($cronExpression);
