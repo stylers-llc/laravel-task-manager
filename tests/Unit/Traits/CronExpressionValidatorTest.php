@@ -36,9 +36,11 @@ class CronExpressionValidatorTest extends TestCase
      */
     public function it_can_handle_wrong_input(string $cronExpression, string $exceptionMsg)
     {
+        $subject = new CronExpressionValidator;
+
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage($exceptionMsg);
 
-        (new CronExpressionValidator)->validateExpression($cronExpression);
+        $subject->validateExpression($cronExpression);
     }
 }
