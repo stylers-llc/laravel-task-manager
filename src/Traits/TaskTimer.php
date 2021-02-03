@@ -11,29 +11,8 @@ trait TaskTimer
     use ManagesFrequencies;
     use CronExpressionValidator;
 
-    protected $expression = '* * * * *'; // Cron expression
+    public $expression = '* * * * *'; // Cron expression
     public $timezone;
-
-    public function __set($name, $value)
-    {
-        if ($name === 'expression') {
-            $this->validateExpression($value);
-        }
-
-        if (property_exists($this, $name)) {
-            $this->$name = $value;
-        }
-    }
-
-    public function __get($name)
-    {
-        return $this->$name;
-    }
-
-    public function __isset($name): bool
-    {
-        return isset($this->$name);
-    }
 
     public function isTimeToExecute(): bool
     {

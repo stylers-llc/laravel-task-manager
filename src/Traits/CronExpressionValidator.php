@@ -11,10 +11,10 @@ trait CronExpressionValidator
         $parts = explode(' ', $expression);
 
         if (strpos($expression, '@') === 0
-            && preg_match(
+            && ! preg_match(
                 '/^@(annually|yearly|monthly|weekly|daily|hourly|reboot)|(@every (\d{1,4}(ns|us|µs|ms|s|m|h))+)$/u',
                 $expression
-            ) === false) {
+            )) {
             throw new InvalidArgumentException(sprintf("Macro doesn't exists: %s", $expression));
         }
 

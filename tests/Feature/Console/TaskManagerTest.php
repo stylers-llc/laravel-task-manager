@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Stylers\TaskManger\Tests\Feature\Console;
+namespace Stylers\TaskManager\Tests\Feature\Console;
 
 use Carbon\Carbon;
+use Illuminate\Console\Command;
 use Mockery\MockInterface;
 use PHPUnit\Framework\MockObject\Matcher\Invocation;
 use Stylers\TaskManager\Console\TaskManager;
@@ -57,6 +58,18 @@ class TaskManagerTest extends TestCase
         self::assertCount(2, $this->subject->commands);
         self::assertContains($task, $this->subject->commands);
         self::assertContains($task2, $this->subject->commands);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_not_add_multiple_tasks_if_type_is_mismatch()
+    {
+        $this->expectException(\Throwable::class);
+
+        $task = new Command();
+
+        $this->subject->bulkAddTasks([$task]);
     }
 
     // Test timing

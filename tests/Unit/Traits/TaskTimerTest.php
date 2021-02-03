@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Stylers\TaskManager\Tests\Unit\Console;
+namespace Stylers\TaskManager\Tests\Unit\Traits;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
+use Illuminate\Support\Facades\Log;
 use Stylers\TaskManager\Contracts\TaskTimerInterface;
 use Stylers\TaskManager\Tests\TestCase;
 use Stylers\TaskManager\Tests\Fixtures\CommandTask;
@@ -28,6 +29,18 @@ class TaskTimerTest extends TestCase
     }
 
     // Test setters
+
+    /**
+     * @test
+     */
+    public function it_can_set_timezone()
+    {
+        $expectedTimeZone = \DateTimeZone::EUROPE;
+
+        $this->subject->timezone($expectedTimeZone);
+
+        self::assertEquals($expectedTimeZone, $this->subject->timezone);
+    }
 
     /**
      * @test
@@ -97,6 +110,18 @@ class TaskTimerTest extends TestCase
             ->getExpression();
 
         self::assertEquals($expectedExpression, $task->expression);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_not_set_wrong_cron_expression()
+    {
+        Log::shouldReceive('warning');
+
+        $this->subject->cron('@not-exists-macro');
+
+        self::assertFalse($this->subject->isTimeToExecute());
     }
 
     /**
