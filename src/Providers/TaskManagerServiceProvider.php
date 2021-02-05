@@ -9,7 +9,7 @@ class TaskManagerServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        dd("it's working");
+        //
     }
     
     public function register()
