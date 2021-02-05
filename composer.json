@@ -10,8 +10,6 @@
   ],
   "type": "library",
   "license": "MIT",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "authors": [
     {
       "name": "Peter Vigh",
@@ -21,8 +19,8 @@
     }
   ],
   "require": {
-    "php": ">=7.2.5",
-    "illuminate/support": "~5"
+    "php": ">=7.2",
+    "illuminate/support": "^5.7"
   },
   "require-dev": {
     "orchestra/testbench": "~3.0|~3.6|~3.7",
@@ -30,27 +28,15 @@
     "phpunit/phpunit": "^7.3"
   },
   "autoload": {
-    "psr-4": {
-      "Stylers\\TaskManager\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Stylers\\TaskManager\\Tests\\": "tests",
-      "Stylers\\TaskManager\\Tests\\Fixtures\\": "tests/Fixtures"
-    }
-  },
-  "scripts": {
-    "test": "vendor/bin/phpunit"
-  },
-  "config": {
-    "sort-packages": true
+      "psr-4": {
+          "Stylers\\TaskManager\\": "src/"
+      }
   },
   "extra": {
-    "laravel": {
-      "providers": [
-        "Stylers\\TaskManager\\Providers\\TaskManagerServiceProvider"
-      ]
-    }
+      "laravel": {
+          "providers": [
+              "Stylers\\TaskManager\\Providers\\TaskManagerServiceProvider"
+          ]
+      }
   }
 }
