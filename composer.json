@@ -33,13 +33,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Stylers\\TaskManager\\": "src"
+      "Stylers\\TaskManager\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Stylers\\TaskManager\\Tests\\": "tests",
-      "Stylers\\TaskManager\\Tests\\Fixtures\\": "tests/Fixtures"
+      "Stylers\\TaskManager\\Tests\\": "tests/",
+      "Stylers\\TaskManager\\Tests\\Fixtures\\": "tests/Fixtures/"
     }
   },
   "scripts": {
