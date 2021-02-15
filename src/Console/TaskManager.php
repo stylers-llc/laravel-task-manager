@@ -51,7 +51,6 @@ class TaskManager
                     $task->handle(); // Command's default method execution
                 } catch (Exception $e) {
                     Log::warning($e->getMessage());
-                    continue;
                 }
             }
         }

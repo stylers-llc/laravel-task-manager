@@ -6,5 +6,6 @@ interface TaskTimerInterface
 {
     public function isTimeToExecute(): bool;
 
+    // Recommended command class method to use an entrypoint
     public function handle();
 }
