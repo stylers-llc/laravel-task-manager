@@ -7,6 +7,11 @@ use Stylers\TaskManager\Console\TaskManager;
 
 class TaskManagerServiceProvider extends ServiceProvider
 {
+    public function boot()
+    {
+        //
+    }
+    
     public function register()
     {
         $this->app->singleton(TaskManager::class, function () {

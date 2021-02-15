@@ -1,7 +1,7 @@
 {
   "name": "stylers/laravel-task-manager",
   "description": "Laravel Task Manager",
-  "homepage": "https://github.com/stylers-llc/laravel-address",
+  "homepage": "https://github.com/stylers-llc/laravel-task-manager",
   "keywords": [
     "stylers",
     "laravel",
@@ -9,6 +9,7 @@
     "manager"
   ],
   "type": "library",
+  "version": "1.0",
   "license": "MIT",
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -22,8 +23,8 @@
     }
   ],
   "require": {
-    "php": ">=7.2.5",
-    "illuminate/support": "~5"
+    "php": ">=7.2",
+    "illuminate/support": "^5.7"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.18",
@@ -49,10 +50,10 @@
     "sort-packages": true
   },
   "extra": {
-    "laravel": {
-      "providers": [
-        "Stylers\\TaskManager\\Providers\\TaskManagerServiceProvider"
-      ]
-    }
+      "laravel": {
+          "providers": [
+              "Stylers\\TaskManager\\Providers\\TaskManagerServiceProvider"
+          ]
+      }
   }
 }
