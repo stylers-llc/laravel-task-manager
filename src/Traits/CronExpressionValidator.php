@@ -31,14 +31,19 @@ trait CronExpressionValidator
         }
 
         if (! $this->isValidDayOfWeek($parts[4])) {
-            throw new InvalidArgumentException('Day of Week must be a number between 0 and 7 (Sunday=0 or 7) or "*", "/", "-", ",".');
+            throw new InvalidArgumentException(
+                'Day of Week must be a number between 0 and 7 (Sunday=0 or 7) or "*", "/", "-", ",".'
+            );
         }
     }
 
     private function isInvalidMacro(string $expression): bool
     {
         return strpos($expression, '@') === 0
-            && ! preg_match('/^@(annually|yearly|monthly|weekly|daily|hourly|reboot)|(@every (\d{1,4}(ns|us|µs|ms|s|m|h))+)$/u', $expression);
+            && ! preg_match(
+                '/^@(annually|yearly|monthly|weekly|daily|hourly|reboot)|(@every (\d{1,4}(ns|us|µs|ms|s|m|h))+)$/u',
+                $expression
+            );
     }
 
     private function isValidMinute(string $minutePart): bool
