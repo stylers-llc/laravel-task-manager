@@ -70,10 +70,9 @@ class ScheduleServiceProvider extends ServiceProvider
 
 ```php
 use Stylers\TaskManager\Console\TaskManager;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/cron', static function (Request $request) {
+Route::get('/cron', static function () {
     TaskManager::run();
 });
 ```
