@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1613579863">
+  <project timestamp="1613579863">
+    <package name="Stylers\TaskManager\Console">
+      <file name="/app/src/Console/TaskManager.php">
+        <class name="Stylers\TaskManager\Console\TaskManager" namespace="Stylers\TaskManager\Console">
+          <metrics complexity="9" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="17" elements="24" coveredelements="20"/>
+        </class>
+        <line num="15" type="method" name="run" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="17" type="stmt" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="23" type="method" name="addTask" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="25" type="stmt" count="3"/>
+        <line num="26" type="stmt" count="3"/>
+        <line num="29" type="method" name="bulkAddTasks" visibility="public" complexity="3" crap="3" count="5"/>
+        <line num="31" type="stmt" count="5"/>
+        <line num="32" type="stmt" count="5"/>
+        <line num="33" type="stmt" count="1"/>
+        <line num="34" type="stmt" count="1"/>
+        <line num="35" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="37" type="stmt" count="1"/>
+        <line num="42" type="stmt" count="4"/>
+        <line num="44" type="stmt" count="4"/>
+        <line num="47" type="method" name="executeTasksForThisTime" visibility="public" complexity="4" crap="4" count="5"/>
+        <line num="49" type="stmt" count="5"/>
+        <line num="50" type="stmt" count="5"/>
+        <line num="53" type="stmt" count="3"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="5"/>
+        <metrics loc="60" ncloc="48" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="17" elements="24" coveredelements="20"/>
+      </file>
+    </package>
+    <file name="/app/src/Contracts/TaskTimerInterface.php">
+      <metrics loc="12" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="Stylers\TaskManager\Providers">
+      <file name="/app/src/Providers/TaskManagerServiceProvider.php">
+        <class name="Stylers\TaskManager\Providers\TaskManagerServiceProvider" namespace="Stylers\TaskManager\Providers">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+        </class>
+        <line num="10" type="method" name="boot" visibility="public" complexity="1" crap="1" count="29"/>
+        <line num="13" type="stmt" count="29"/>
+        <line num="15" type="method" name="register" visibility="public" complexity="1" crap="1" count="29"/>
+        <line num="18" type="stmt" count="8"/>
+        <line num="19" type="stmt" count="29"/>
+        <line num="20" type="stmt" count="29"/>
+        <metrics loc="21" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+      </file>
+    </package>
+    <package name="Stylers\TaskManager\Traits">
+      <file name="/app/src/Traits/CronExpressionValidator.php">
+        <class name="CronExpressionValidator" namespace="Stylers\TaskManager\Traits">
+          <metrics complexity="14" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="22" elements="30" coveredelements="28"/>
+        </class>
+        <line num="9" type="method" name="validateExpression" visibility="public" complexity="7" crap="7.01" count="11"/>
+        <line num="11" type="stmt" count="11"/>
+        <line num="13" type="stmt" count="11"/>
+        <line num="14" type="stmt" count="1"/>
+        <line num="17" type="stmt" count="10"/>
+        <line num="18" type="stmt" count="2"/>
+        <line num="21" type="stmt" count="8"/>
+        <line num="22" type="stmt" count="2"/>
+        <line num="25" type="stmt" count="6"/>
+        <line num="26" type="stmt" count="2"/>
+        <line num="29" type="stmt" count="4"/>
+        <line num="30" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="34" type="stmt" count="2"/>
+        <line num="35" type="stmt" count="2"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="40" type="method" name="isInvalidMacro" visibility="private" complexity="2" crap="2" count="11"/>
+        <line num="42" type="stmt" count="11"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="11"/>
+        <line num="49" type="method" name="isValidMinute" visibility="private" complexity="1" crap="1" count="10"/>
+        <line num="51" type="stmt" count="10"/>
+        <line num="54" type="method" name="isValidHour" visibility="private" complexity="1" crap="1" count="8"/>
+        <line num="56" type="stmt" count="8"/>
+        <line num="59" type="method" name="isValidDayOfMonth" visibility="private" complexity="1" crap="1" count="6"/>
+        <line num="61" type="stmt" count="6"/>
+        <line num="64" type="method" name="isValidMonth" visibility="private" complexity="1" crap="1" count="4"/>
+        <line num="66" type="stmt" count="4"/>
+        <line num="69" type="method" name="isValidDayOfWeek" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="71" type="stmt" count="2"/>
+        <metrics loc="73" ncloc="73" classes="1" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="22" elements="30" coveredelements="28"/>
+      </file>
+      <file name="/app/src/Traits/TaskTimer.php">
+        <class name="TaskTimer" namespace="Stylers\TaskManager\Traits">
+          <metrics complexity="2" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
+        </class>
+        <line num="17" type="method" name="isTimeToExecute" visibility="public" complexity="2" crap="2" count="6"/>
+        <line num="20" type="stmt" count="6"/>
+        <line num="21" type="stmt" count="5"/>
+        <line num="22" type="stmt" count="1"/>
+        <line num="23" type="stmt" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <metrics loc="28" ncloc="26" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
+      </file>
+    </package>
+    <metrics files="5" loc="194" ncloc="174" classes="4" methods="14" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="48" elements="66" coveredelements="60"/>
+  </project>
+</coverage>

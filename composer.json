@@ -1,6 +1,6 @@
 {
   "name": "stylers/laravel-task-manager",
-  "description": "Laravel Task Manager",
+  "description": "This package is a workaround for run tasks without artisan because proc_open & proc_close PHP modules disabled some server such as shared hosts.",
   "homepage": "https://github.com/stylers-llc/laravel-task-manager",
   "keywords": [
     "stylers",
@@ -9,11 +9,10 @@
     "manager"
   ],
   "type": "library",
-  "version": "1.0",
   "license": "MIT",
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "authors": [
     {
       "name": "Peter Vigh",
@@ -44,7 +43,10 @@
     }
   },
   "scripts": {
-    "test": "vendor/bin/phpunit"
+    "test": "vendor/bin/phpunit --colors=always --no-coverage",
+    "test-coverage": "vendor/bin/phpunit --colors=always",
+    "phpmd": "vendor/bin/phpmd src text phpmd.xml",
+    "phpcs": "vendor/bin/php-cs-fixer fix --dry-run src"
   },
   "config": {
     "sort-packages": true
