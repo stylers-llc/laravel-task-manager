@@ -8,6 +8,11 @@ use Stylers\TaskManager\Providers\TaskManagerServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
+    /**
+     * @param Application $app
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     protected function getPackageProviders($app): array
     {
         return [
