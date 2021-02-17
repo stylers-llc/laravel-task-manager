@@ -12,6 +12,13 @@
 composer require stylers/laravel-task-manager
 ```
 
+## How to Test
+```bash
+docker run -it --rm -v $PWD:/app -w /app jitesoft/phpunit:7.3 sh
+composer install
+./vendor/bin/phpunit
+```
+
 ## Usage
 TaskTimer trait is using [Laravel's Schedule Frequency Options](https://laravel.com/docs/5.7/scheduling#schedule-frequency-options)
 1. Add Interface and Trait to class implementation and add handle method for a command entrypoint
