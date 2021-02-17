@@ -19,7 +19,7 @@ composer require stylers/laravel-task-manager
 ```bash
 docker run -it --rm -v $PWD:/app -w /app jitesoft/phpunit:7.3 sh
 composer install
-./vendor/bin/phpunit
+composer test
 ```
 
 ## Usage
