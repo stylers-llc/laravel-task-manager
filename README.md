@@ -1,4 +1,7 @@
 # Laravel Task Manager
+[![Latest Stable Version](https://poser.pugx.org/stylers/laravel-task-manager/version)](https://packagist.org/packages/stylers/laravel-task-manager)
+[![Total Downloads](https://poser.pugx.org/stylers/laravel-task-manager/downloads)](https://packagist.org/packages/stylers/laravel-task-manager)
+[![License](https://poser.pugx.org/stylers/laravel-address/license)](https://packagist.org/packages/stylers/laravel-address)
 [![Tests](https://github.com/stylers-llc/laravel-task-manager/workflows/Tests/badge.svg)](https://github.com/stylers-llc/laravel-task-manager/actions)
 [![codecov](https://codecov.io/gh/stylers-llc/laravel-task-manager/branch/master/graph/badge.svg?token=QYYV44SUOX)](https://codecov.io/gh/stylers-llc/laravel-task-manager)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d5544fa1512aa727d251/maintainability)](https://codeclimate.com/github/stylers-llc/laravel-task-manager/maintainability)  
