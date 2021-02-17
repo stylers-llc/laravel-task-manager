@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Log;
 
 class TaskManager
 {
-    /** @var array */
     public $commands = [];
 
     // static method for run scheduler easily in one line
@@ -20,11 +19,13 @@ class TaskManager
         $scheduler->executeTasksForThisTime();
     }
 
+    // Add one Task to commands array for future run
     public function addTask(TaskTimerInterface $task): void
     {
         $this->commands[] = $task;
     }
 
+    // Add multiple Tasks at once to commands array for future run
     public function bulkAddTasks(array $tasks): void
     {
         foreach ($tasks as $task) {
@@ -42,6 +43,7 @@ class TaskManager
         }
     }
 
+    // Checks current tasks at now
     public function executeTasksForThisTime(): void
     {
         foreach ($this->commands as $task) {
@@ -51,7 +53,6 @@ class TaskManager
                     $task->handle(); // Command's default method execution
                 } catch (Exception $e) {
                     Log::warning($e->getMessage());
-                    continue;
                 }
             }
         }

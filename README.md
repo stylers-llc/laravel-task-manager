@@ -1,7 +1,7 @@
 # Laravel Task Manager
-![Tests](https://github.com/stylers-llc/laravel-task-manager/workflows/Tests/badge.svg)
+[![Tests](https://github.com/stylers-llc/laravel-task-manager/workflows/Tests/badge.svg)](https://github.com/stylers-llc/laravel-task-manager/actions)
 [![codecov](https://codecov.io/gh/stylers-llc/laravel-task-manager/branch/master/graph/badge.svg?token=QYYV44SUOX)](https://codecov.io/gh/stylers-llc/laravel-task-manager)
-[![Maintainability](https://api.codeclimate.com/v1/badges/cb27855f8162042e522f/maintainability)](https://codeclimate.com/repos/601989c1f8bfa307f40075d5/maintainability)  
+[![Maintainability](https://api.codeclimate.com/v1/badges/d5544fa1512aa727d251/maintainability)](https://codeclimate.com/github/stylers-llc/laravel-task-manager/maintainability)  
 
 ## Requirements
 - PHP >= 7.2.5
@@ -10,6 +10,13 @@
 ## Installation
 ```bash
 composer require stylers/laravel-task-manager
+```
+
+## How to Test
+```bash
+docker run -it --rm -v $PWD:/app -w /app jitesoft/phpunit:7.3 sh
+composer install
+./vendor/bin/phpunit
 ```
 
 ## Usage
@@ -70,10 +77,9 @@ class ScheduleServiceProvider extends ServiceProvider
 
 ```php
 use Stylers\TaskManager\Console\TaskManager;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/cron', static function (Request $request) {
+Route::get('/cron', static function () {
     TaskManager::run();
 });
 ```
