@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Mockery\MockInterface;
 use PHPUnit\Framework\MockObject\Matcher\Invocation;
+use PHPUnit\Framework\MockObject\Rule\InvokedCount;
 use Stylers\TaskManager\Console\TaskManager;
 use Stylers\TaskManager\Contracts\TaskTimerInterface;
 use Stylers\TaskManager\Tests\TestCase;
@@ -119,10 +120,10 @@ class TaskManagerTest extends TestCase
      * @dataProvider processTimeDataProvider
      */
     public function it_can_handle_correcty_all_tasks_time(
-        Invocation $task1Times,
+        InvokedCount $task1Times,
         int $task1Interval,
         bool $task1IsTimeToExecute,
-        Invocation $task2Times,
+        InvokedCount $task2Times,
         int $task2Interval,
         bool $task2IsTimeToExecute
     ) {
@@ -158,7 +159,7 @@ class TaskManagerTest extends TestCase
     /**
      * @return object|TaskTimerInterface
      */
-    private function assertMockTaskMethodHandleCalled(Invocation $times, int $minutes)
+    private function assertMockTaskMethodHandleCalled(InvokedCount $times, int $minutes)
     {
         $mock = $this
             ->getMockBuilder(CommandTask::class)
