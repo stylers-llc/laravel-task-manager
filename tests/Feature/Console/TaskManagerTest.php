@@ -5,12 +5,11 @@ namespace Stylers\TaskManager\Tests\Feature\Console;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Mockery\MockInterface;
-use PHPUnit\Framework\MockObject\Matcher\Invocation;
 use PHPUnit\Framework\MockObject\Rule\InvokedCount;
 use Stylers\TaskManager\Console\TaskManager;
 use Stylers\TaskManager\Contracts\TaskTimerInterface;
-use Stylers\TaskManager\Tests\TestCase;
 use Stylers\TaskManager\Tests\Fixtures\CommandTask;
+use Stylers\TaskManager\Tests\TestCase;
 
 class TaskManagerTest extends TestCase
 {
@@ -109,15 +108,21 @@ class TaskManagerTest extends TestCase
         $beforeCurrentMinute = abs($currentMinute - 10);
 
         return [
-            'run - run' =>          [self::once(), $currentMinute, true, self::once(), $currentMinute, true],
-            'run - not run' =>      [self::once(), $currentMinute, true, self::never(), $beforeCurrentMinute, false],
-            'not run - not run' =>  [self::never(), $beforeCurrentMinute, false, self::never(), $beforeCurrentMinute, false],
+            'run - run' => [self::once(), $currentMinute, true, self::once(), $currentMinute, true],
+            'run - not run' => [self::once(), $currentMinute, true, self::never(), $beforeCurrentMinute, false],
+            'not run - not run' => [self::never(), $beforeCurrentMinute, false, self::never(), $beforeCurrentMinute, false],
         ];
     }
 
     /**
      * @test
      * @dataProvider processTimeDataProvider
+     * @param InvokedCount $task1Times
+     * @param int $task1Interval
+     * @param bool $task1IsTimeToExecute
+     * @param InvokedCount $task2Times
+     * @param int $task2Interval
+     * @param bool $task2IsTimeToExecute
      */
     public function it_can_handle_correcty_all_tasks_time(
         InvokedCount $task1Times,
@@ -126,7 +131,8 @@ class TaskManagerTest extends TestCase
         InvokedCount $task2Times,
         int $task2Interval,
         bool $task2IsTimeToExecute
-    ) {
+    )
+    {
         /** @var TaskTimerInterface $task */
         $task = $this->assertMockTaskMethodHandleCalled($task1Times, $task1Interval);
         $task2 = $this->assertMockTaskMethodHandleCalled($task2Times, $task2Interval);
@@ -142,6 +148,7 @@ class TaskManagerTest extends TestCase
     }
 
     /**
+     * @param bool $returnValue
      * @return object|TaskTimerInterface
      */
     private function mockTaskMethodIsTimeToExecuteAndReturn(bool $returnValue)
@@ -157,6 +164,8 @@ class TaskManagerTest extends TestCase
     }
 
     /**
+     * @param InvokedCount $times
+     * @param int $minutes
      * @return object|TaskTimerInterface
      */
     private function assertMockTaskMethodHandleCalled(InvokedCount $times, int $minutes)
