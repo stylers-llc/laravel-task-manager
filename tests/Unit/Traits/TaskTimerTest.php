@@ -6,8 +6,8 @@ use Carbon\Carbon;
 use Cron\CronExpression;
 use Illuminate\Support\Facades\Log;
 use Stylers\TaskManager\Contracts\TaskTimerInterface;
-use Stylers\TaskManager\Tests\TestCase;
 use Stylers\TaskManager\Tests\Fixtures\CommandTask;
+use Stylers\TaskManager\Tests\TestCase;
 
 class TaskTimerTest extends TestCase
 {
@@ -89,9 +89,9 @@ class TaskTimerTest extends TestCase
     {
         $task = $this->subject->monthlyOn(Carbon::FRIDAY, sprintf('%d:00', self::HOUR));
 
-        $expectedExpression = CronExpression::factory('@monthly')
-            ->setPart(CronExpression::DAY, Carbon::FRIDAY)
-            ->setPart(CronExpression::HOUR, self::HOUR)
+        $expectedExpression = new CronExpression('@monthly');
+        $expectedExpression->setPart(CronExpression::DAY, (string)Carbon::FRIDAY)
+            ->setPart(CronExpression::HOUR, (string)self::HOUR)
             ->getExpression();
 
         self::assertEquals($expectedExpression, $task->expression);
@@ -104,9 +104,9 @@ class TaskTimerTest extends TestCase
     {
         $task = $this->subject->dailyAt(sprintf(self::TIME_PATTERN, self::HOUR, self::MINUTE));
 
-        $expectedExpression = CronExpression::factory('@daily')
-            ->setPart(CronExpression::HOUR, self::HOUR)
-            ->setPart(CronExpression::MINUTE, self::MINUTE)
+        $expectedExpression = new CronExpression('@daily');
+        $expectedExpression->setPart(CronExpression::HOUR, (string)self::HOUR)
+            ->setPart(CronExpression::MINUTE, (string)self::MINUTE)
             ->getExpression();
 
         self::assertEquals($expectedExpression, $task->expression);
