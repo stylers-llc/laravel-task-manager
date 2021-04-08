@@ -49,8 +49,8 @@ class TaskTimerTest extends TestCase
     {
         $task = $this->subject->hourlyAt(self::MINUTE);
 
-        $expectedExpression = CronExpression::factory(sprintf('%d * * * *', self::MINUTE))
-            ->getExpression();
+        $expectedExpression = new CronExpression(sprintf('%d * * * *', self::MINUTE));
+        $expectedExpression->getExpression();
 
         self::assertEquals($expectedExpression, $task->expression);
     }
@@ -62,9 +62,8 @@ class TaskTimerTest extends TestCase
     {
         $task = $this->subject->weeklyOn(Carbon::MONDAY, sprintf(self::TIME_PATTERN, self::HOUR, self::MINUTE));
 
-        $expectedExpression = CronExpression::factory(
-            sprintf('%d %d * * %d', self::MINUTE, self::HOUR, Carbon::MONDAY)
-        )->getExpression();
+        $expectedExpression = new CronExpression(sprintf('%d %d * * %d', self::MINUTE, self::HOUR, Carbon::MONDAY));
+        $expectedExpression->getExpression();
 
         self::assertEquals($expectedExpression, $task->expression);
     }
@@ -76,8 +75,8 @@ class TaskTimerTest extends TestCase
     {
         $task = $this->subject->monthly();
 
-        $expectedExpression = CronExpression::factory('@monthly')
-            ->getExpression();
+        $expectedExpression = new CronExpression('@monthly');
+        $expectedExpression->getExpression();
 
         self::assertEquals($expectedExpression, $task->expression);
     }
