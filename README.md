@@ -6,9 +6,18 @@
 [![codecov](https://codecov.io/gh/stylers-llc/laravel-task-manager/branch/master/graph/badge.svg?token=QYYV44SUOX)](https://codecov.io/gh/stylers-llc/laravel-task-manager)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d5544fa1512aa727d251/maintainability)](https://codeclimate.com/github/stylers-llc/laravel-task-manager/maintainability)  
 
+## Laravel version compatibility
+| Laravel version | Package version |
+|-----------------|-----------------|
+| 5.7             | 1.0             |
+| 6.0             | 2.0             |
+| 7.0             | 3.0             |
+| 8.0             | 4.0             |
+| 9.0             | 5.0             |
+
 ## Requirements
-- PHP >= 7.2.5
-- Laravel >= 5.7
+- PHP >= 8.0
+- Laravel >= 9.x
 
 ## Installation
 ```bash
@@ -17,9 +26,9 @@ composer require stylers/laravel-task-manager
 
 ## How to Test
 ```bash
-docker run -it --rm -v $PWD:/app -w /app jitesoft/phpunit:7.3 sh
+docker run -it --rm -v $PWD:/app -w /app composer sh
 composer install
-composer test
+./vendor/bin/phpunit
 ```
 
 ## Usage
