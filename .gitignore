@@ -4,5 +4,7 @@ vendor/*
 composer.lock
 .php_cs.cache
 
-!.gitignore
 .phpunit.result.cache
+.phpunit.cache
+
+!.gitignore
