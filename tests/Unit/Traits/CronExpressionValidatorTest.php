@@ -8,7 +8,7 @@ use Stylers\TaskManager\Tests\Fixtures\CronExpressionValidator;
 
 class CronExpressionValidatorTest extends TestCase
 {
-    public function outOfIntervalValuesDataProvider(): array
+    public static function outOfIntervalValuesDataProvider(): array
     {
         $macroExceptionMsg = 'Macro doesn\'t exists: @non-exists-macro';
         $dayOfWeekExceptionMsg = 'Day of Week must be a number between 0 and 7 (Sunday=0 or 7) or "*", "/", "-", ",".';

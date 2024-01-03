@@ -102,7 +102,7 @@ class TaskManagerTest extends TestCase
         self::assertFalse($task->isTimeToExecute());
     }
 
-    public function processTimeDataProvider(): array
+    public static function processTimeDataProvider(): array
     {
         $currentMinute = Carbon::now()->minute;
         $beforeCurrentMinute = abs($currentMinute - 10);
@@ -172,7 +172,7 @@ class TaskManagerTest extends TestCase
     {
         $mock = $this
             ->getMockBuilder(CommandTask::class)
-            ->setMethods(['handle'])
+            ->onlyMethods(['handle'])
             ->getMock();
 
         $mock->cron(sprintf('%d * * * *', $minutes));
